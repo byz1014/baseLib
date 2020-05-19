@@ -1,5 +1,6 @@
 package com.example.baselib;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -96,4 +97,24 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         }
     }
 
+
+    protected void goActivity(Class<?> cla, Bundle bundle) {
+        Intent intent = new Intent(this, cla);
+        if (bundle != null) {
+            intent.putExtra("bundle", bundle);
+        }
+        startActivity(intent);
+    }
+
+    protected void goResultActivity(Class<?> cla, Bundle bundle, int code) {
+        Intent intent = new Intent(this, cla);
+        if (bundle != null) {
+            intent.putExtra("bundle", bundle);
+        }
+        startActivityForResult(intent, code);
+    }
+
+    protected Bundle getBundle() {
+        return getIntent().getBundleExtra("bundle");
+    }
 }
