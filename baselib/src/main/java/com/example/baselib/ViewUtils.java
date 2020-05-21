@@ -5,6 +5,10 @@ import android.view.View;
 
 import java.lang.reflect.Field;
 
+/**
+ * 通过反射获取各组件id和是否需要点击事件
+ * 根据反射得到的数据，自动获取ID 和添加点击事件
+ */
 public class ViewUtils {
 
     private ViewUtils() {
@@ -32,7 +36,7 @@ public class ViewUtils {
                 int id = findviewbyId.value();
                 boolean isClick = findviewbyId.click();
                 try {
-                    if (isClick) {//
+                    if (isClick) {
                         curClass.getWindow().getDecorView().findViewById(id).setOnClickListener((View.OnClickListener) curClass);
                     }
                     field.set(curClass, curClass.getWindow().getDecorView().findViewById(id));

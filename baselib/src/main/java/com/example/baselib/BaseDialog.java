@@ -6,6 +6,12 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
 
+/**
+ * 注解处理FindviewId
+ * 配置Dialog相关属性
+ * 动态添加dialog的Style
+ * Dialog点击事件回调
+ */
 public abstract class BaseDialog extends Dialog implements View.OnClickListener {
 
     public BaseDialog(@NonNull Context context, int themeResId) {

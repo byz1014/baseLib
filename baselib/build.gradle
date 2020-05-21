@@ -35,6 +35,6 @@ task makeJar(type: Copy) {
     from('build\\intermediates\\intermediate-jars\\debug\\')
     into('build\\libs\\')
     include('classes.jar')
-    rename('classes.jar','baselib.jar')
+    rename('classes.jar','baselib_1.2.jar')
 }
 makeJar.dependsOn(build)

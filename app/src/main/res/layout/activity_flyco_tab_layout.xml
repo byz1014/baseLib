@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".test.FlycoTabLayoutActivity">
+
+    <!--CommonTabLayout-->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CommonTabLayout:"
+        android:textColor="#000"
+        android:textSize="25sp"
+        />
+    <com.flyco.tablayout.CommonTabLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="30dp"
+        android:layout_height="50dp"
+        android:id="@+id/ctl_body"
+        app:tl_iconVisible="false"
+        app:tl_divider_width="30dp"
+        app:tl_textSelectColor="#000"
+        app:tl_textUnselectColor="#9000"
+        app:tl_indicator_gravity="BOTTOM"
+        app:tl_iconGravity="BOTTOM"
+        app:tl_divider_color="#0fff"
+        app:tl_indicator_color="#0099ff"
+        app:tl_divider_padding="0dp"
+        />
+
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="#000"
+    android:textSize="25sp"
+    android:layout_marginTop="20dp"
+    android:text="SegmentTabLayout:"
+    />
+
+<com.flyco.tablayout.SegmentTabLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="30dp"
+    app:tl_indicator_bounce_enable="true"
+    android:id="@+id/stl_body"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:textSize="25sp"
+        android:layout_marginTop="20dp"
+        android:text="SlidingTabLayout:"
+        />
+
+    <com.flyco.tablayout.SlidingTabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/stl_body_Sliding"/>
+
+</LinearLayout>

@@ -15,15 +15,27 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.util.ArrayList;
 
+/**
+ * 1.Activity 注解获取控件Id
+ * 2.Activity 跳转管理
+ * 3.Activity动态权限管理
+ * 4.Toast管理
+ * implementation 'org.greenrobot:eventbus:3.2.0'
+ * implementation 'com.squareup.okhttp3:okhttp:4.7.2'
+ */
 public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(onLayout());
         ViewUtils.getViewUtils().IndexFindViewById(this);
-
+        EventBus.getDefault().register(this);
         Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler() {
             @Override
             public boolean queueIdle() {
@@ -117,4 +129,15 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     protected Bundle getBundle() {
         return getIntent().getBundleExtra("bundle");
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+
+
+    @Subscribe(threadMode  = ThreadMode.MAIN,priority = 1000)
+    public abstract void onHttpCallBack(HttpSerializable httpSerializable);
+//
 }
